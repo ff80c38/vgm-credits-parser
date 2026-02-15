@@ -33,12 +33,6 @@ The following blocks are currently implemented and are used with exactly this pr
 ```
 
 ```
-[1] comment
-[1] role - artist
-[…] disc - track
-```
-
-```
 [1] COMMENT
 […] track - comment
 ```
@@ -55,6 +49,12 @@ The following blocks are currently implemented and are used with exactly this pr
 
 ```
 [1] disc
+```
+
+```
+[1] comment
+[1] role - artist
+[…] disc - track
 ```
 
 ```

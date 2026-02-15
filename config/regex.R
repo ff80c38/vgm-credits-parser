@@ -169,10 +169,6 @@ BLOCK <- list(
     lines = c("disc_discsubtitle"),
     multi = c(FALSE)
   ),
-  list(
-    lines = c("comment", "role_artist", "disc_track"),
-    multi = c(FALSE, FALSE, TRUE)
-  ),
   list( # Custom macro for many comments
     lines = c("COMMENT", "track_comment"),
     multi = c(FALSE, TRUE)
@@ -188,6 +184,10 @@ BLOCK <- list(
   list( # 1 Line Block
     lines = c("disc"),
     multi = c(FALSE)
+  ),
+  list(
+    lines = c("comment", "role_artist", "disc_track"),
+    multi = c(FALSE, FALSE, TRUE)
   ),
   list( # 1 Line Block
     lines = c("track_comment"),
