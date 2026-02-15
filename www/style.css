@@ -1,0 +1,321 @@
+/*===============
+  Utility Classes
+  ===============*/
+
+.push {
+  margin-left: auto;
+}
+
+.numericInputLabel {
+  width: 175px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.numeric-unit {
+  width: 150px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.vertical-space {
+  height: 1rem;
+}
+
+.vertical-space-small {
+  height: 0.5rem;
+  flex-shrink: 0;
+}
+
+.vertical-space-large {
+  height: 2rem;
+  flex-shrink: 0;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  /* border: red dashed 2px; */
+}
+
+.unset-height {
+  height: unset !important;
+}
+
+
+/*===============
+  PAGE CONTAINERS
+ ================*/
+
+/* Container that fills viewport minus navbar */
+.page-container {
+  height: calc(100vh - 115px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.page-container .row {
+  height: 100%;
+}
+
+
+.page-container .col-sm-0,
+.page-container .col-sm-1,
+.page-container .col-sm-2,
+.page-container .col-sm-3,
+.page-container .col-sm-4,
+.page-container .col-sm-5,
+.page-container .col-sm-6,
+.page-container .col-sm-7,
+.page-container .col-sm-8,
+.page-container .col-sm-9,
+.page-container .col-sm-10,
+.page-container .col-sm-11,
+.page-container .col-sm-12 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.limited-container {
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* Content that grows to fill available space */
+.scroll-container {
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Content that grows to fill available space */
+.fill-container {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.default-sortable.bucket-list-container {
+  padding: 0px;
+  margin: 0px;
+}
+
+.bslib-mb-spacing {
+  margin-bottom: 0 !important;
+}
+
+/* Fill container: non-DT children don't grow, DT grows to fill */
+.limited-container > *:not(.datatable-scroll),
+.scroll-container > *:not(.datatable-scroll),
+.fill-container > *:not(.datatable-scroll) {
+  flex-shrink: 0;  /* Don't shrink */
+  flex-grow: 0;    /* Don't grow */
+}
+
+.card-body > .datatable-scroll,
+.limited-container > .datatable-scroll,
+.scroll-container > .datatable-scroll,
+.fill-container > .datatable-scroll {
+  flex: 1;         /* Grow to fill remaining space */
+  min-height: 0;   /* Allow shrinking below content */
+}
+
+.tab-pane {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+/* Ace editor container */
+.ace-container {
+  flex: 1;
+  min-height: 300px;
+}
+
+.no-gap > .card-body {
+  gap: 0px;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 0.5rem; /* row gap, column gap */
+  align-items: center;
+}
+
+.input-grid .input-label {
+  text-align: right;
+  justify-self: end; /* Align labels to right edge */
+}
+
+.input-grid .form-group {
+  margin: 0; /* Remove default shiny margins */
+}
+
+
+/*==========
+  DATATABLES
+  ==========*/
+
+/* DT wrapper that enables scrolling */
+.datatable-scroll {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* border: red dashed 2px; */
+}
+
+/* Stack DT elements vertically */
+.datatable-scroll .datatables,
+.datatable-scroll .dataTables_wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fixed-height elements at top */
+.datatable-scroll .dataTables_filter,
+.datatable-scroll .dataTables_info,
+.datatable-scroll caption {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+/* The scroll container with header */
+.datatable-scroll .dataTables_scroll {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Header doesn't grow */
+.datatable-scroll .dataTables_scrollHead {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+/* Body takes remaining space */
+.datatable-scroll .dataTables_scrollBody {
+  flex: 1;
+  min-height: 0;
+  overflow: auto !important;
+}
+
+/* Remove any default margins that cause issues */
+.datatable-scroll .dataTable {
+  margin-bottom: 0 !important;
+}
+
+.dataTable td {
+  white-space: nowrap;
+}
+
+.dataTables_wrapper .dataTables_processing {
+  display: none !important;
+}
+
+
+/*============
+  Misc Styling
+  ============*/
+
+/* Scale down cover image while preserving aspect ratio */
+.container img {
+  width: 100%;
+}
+
+/* Navbar height */
+.navbar-static-top {
+  height: 75px;
+}
+
+/* Sortable list items */
+.default-sortable .rank-list-item {
+  padding: 7px 15px;
+}
+
+/* Tooltip Settings */
+.tooltip-inner code {
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.tooltip-inner ul {
+  margin-bottom: 0;
+}
+
+.tooltip-inner {
+  text-align: left;
+  max-width: 400px;
+}
+
+
+/*===================
+  SHINY FORM ELEMENTS
+  ===================*/
+
+/* Only affect INLINE radio buttons */
+.shiny-input-radiogroup.shiny-input-container-inline {
+  margin: 0;
+}
+
+/* Align radio buttons horizontally */
+.shiny-input-radiogroup.shiny-input-container-inline .shiny-options-group {
+  display: flex;
+  align-items: center;
+}
+
+/* Align radio + text nicely */
+.shiny-input-radiogroup.shiny-input-container-inline .radio-inline {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/* Radio button spacing */
+.form-check-input[type="radio"],
+.shiny-input-container .checkbox input[type="radio"],
+.shiny-input-container .checkbox-inline input[type="radio"],
+.shiny-input-container .radio input[type="radio"],
+.shiny-input-container .radio-inline input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Checkbox spacing */
+.form-check-input[type="checkbox"],
+.shiny-input-container .checkbox input[type="checkbox"],
+.shiny-input-container .checkbox-inline input[type="checkbox"],
+.shiny-input-container .radio input[type="checkbox"],
+.shiny-input-container .radio-inline input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* Form control styling */
+.form-control {
+  line-height: 1.25;
+}
+
+/* Input container spacing */
+.shiny-input-container {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* Well inputs full width */
+.well .shiny-input-container {
+  width: 100%;
+}

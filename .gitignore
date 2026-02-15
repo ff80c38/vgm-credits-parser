@@ -1,0 +1,15 @@
+# RStudio
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Application-specific
+album.html
+tools/metaflac.exe
+tools/libFLAC.dll
+
+# OS-specific
+.DS_Store
+Thumbs.db
