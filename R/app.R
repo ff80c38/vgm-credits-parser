@@ -44,44 +44,9 @@ source(file.path(PATH, "R", "fct_albumartist.R"))
 source(file.path(PATH, "R", "fct_tagger.R"))
 
 check_BLOCK(BLOCK, LINE)
-# cat("\014")
 
 source(file.path(PATH, "R", "shiny.R"))
 source(file.path(PATH, "R", "ui.R"))
 source(file.path(PATH, "R", "server.R"))
 
-# debug(create_all_tags)
-# debug(tag_flac_files)
-# options(shiny.reactlog=TRUE)
-# debug(apply_format_code)
-# debug(fix_title)
-# debug(get_dummy_tracklists)
-# debug(create_artist_scores)
-# debug(create_disc_tags)
-# debug(apply_format_code)
-# debug(parse_tracklist)
-# debug(create_artist_scores)
-# debug(parse_found_info)
-
 shiny::shinyApp(ui, server, options=list(launch.browser=TRUE))
-
-# stringi::stri_escape_unicode(NOTES[9])
-#
-# N <- "Yasuaki Iwata: M1, M2, M5, M8, M15, M17, M20, M22, M25"
-#
-# stringi::stri_match_first_regex(
-#   N,
-#   pattern="^(.+)(?: +: +|: +| +- +| {2,})(.*?[0-9].*?)$",
-#   opts_regex=list(case_insensitive=TRUE)
-# )
-#
-# LINE$artist_track$regex
-#
-# analyse_line(NOTES[9], LINE$artist_track)
-#
-# potential_matches <- lapply(LINE, function(line){
-#   analyse_line(NOTES[9], line)
-# })
-# has_matches <- data.table::as.data.table(lapply(potential_matches, function(line_def){
-#   r_avail_n(line_def, length(NOTES[6:11]))
-# }))
