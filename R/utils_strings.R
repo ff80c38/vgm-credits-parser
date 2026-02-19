@@ -310,12 +310,12 @@ fix_filename <- function(x){
 }
 
 # Option to remove artist suffixes
-fix_artist <- function(x, remove_suffix){
+fix_artist <- function(x, remove_suffix, case="default"){
   if (remove_suffix){
-    stringi::stri_replace_first_regex(x, "^(.+?)( +)\\([^()]*\\)$", "$1")
-  }else{
-    x
+    x <- stringi::stri_replace_first_regex(x, "^(.+?)( +)\\([^()]*\\)$", "$1")
   }
+
+  fix_title(x, case=case, halfwidth=FALSE, various=FALSE)
 }
 
 # Standardize track titles
@@ -384,7 +384,7 @@ fix_notes_lines <- function(str){
     "\u205f", " ",
     "\u3000", "  ",
     "\\s", " ",
-    "^ ", "",
+    "^ +", "",
     "[ :]+$", ""
   )
 

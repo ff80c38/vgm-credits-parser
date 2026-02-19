@@ -262,7 +262,10 @@ ui <- shiny::navbarPage(
               ),
               shiny::hr(),
               shiny::h6(shiny::tags$b(shiny::code("TITLE"), " Case")),
-              ui_radiobutton_case("case_title", getOption("vgm_case_title"))
+              ui_radiobutton_case("case_title", getOption("vgm_case_title")),
+              shiny::hr(),
+              shiny::h6(shiny::tags$b("Artist Case")),
+              ui_radiobutton_case("case_artist", getOption("vgm_case_artist"))
             ),
             ui_mainpanel(
               width = 12 - getOption("vgm_sidebar_width_options"),

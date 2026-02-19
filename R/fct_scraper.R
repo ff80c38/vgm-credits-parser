@@ -221,6 +221,9 @@ scrape_album <- function(url){
 
   # Remove all non-displayed aliases (Japanese, Romaji, alternate titles, ...)
   xml2::xml_remove(xml2::xml_find_all(html, ".//span[@style='display:none']"))
+  # Remove unneeded elements that mess with our parsing
+  xml2::xml_remove(xml2::xml_find_all(html, ".//script[@type='text/javascript']"))
+  xml2::xml_remove(xml2::xml_find_all(html, ".//div[@id='childbrowse_menu']"))
 
   # Event + Album Info
   event <- get_event(html)

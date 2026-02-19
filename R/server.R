@@ -234,6 +234,7 @@ server <- function(input, output, session){
       input$sep_multi_value,
       input$remove_artist_suffix,
       input$case_title,
+      input$case_artist,
       input$halfwidth,
       input$buckets_ARTIST,
       input$default_ARTIST,

@@ -54,6 +54,7 @@ options(vgm_discsubtitle_format_codes = list( # First entry is used as default
 
 options(vgm_remove_artist_suffix = TRUE)
 options(vgm_case_title = "") # Possible values: "", "lower", "upper", "title", "force_title", "proper", "sentence"
+options(vgm_case_artist = "") # Possible values: "", "lower", "upper", "title", "force_title", "proper", "sentence"
 
 # 3.5 Album Artist ----
 

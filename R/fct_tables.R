@@ -148,15 +148,15 @@ create_track_tags <- function(r, input){
   # Add artist tags
   if (simple_df(r$tbl_credits)){
     credits_main <- r$tbl_credits[
-      Tag %in% getOption("vgm_main_tags"),
-      .(text = p(unique(fix_artist(Artist, remove_suffix=input$remove_artist_suffix)), collapse=input$sep_multi_value)),
+      i = Tag %in% getOption("vgm_main_tags"),
+      j = .(text = p(unique(fix_artist(Artist, remove_suffix=input$remove_artist_suffix, case=input$case_artist)), collapse=input$sep_multi_value)),
       by = .(Tag, DISCNUMBER=Disc, TRACKNUMBER=Track)
     ]
 
     credits_performer <- r$tbl_credits[
       Tag %in% getOption("vgm_performer_tags"),
-      .(text = p(fix_artist(Artist, remove_suffix=input$remove_artist_suffix), " (", p(unique(Role), collapse = "/"), ")")),
-      by = .(Artist = fix_artist(Artist, remove_suffix=input$remove_artist_suffix), DISCNUMBER = Disc, TRACKNUMBER = Track)
+      .(text = p(fix_artist(Artist, remove_suffix=input$remove_artist_suffix, case=input$case_artist), " (", p(unique(Role), collapse = "/"), ")")),
+      by = .(Artist = fix_artist(Artist, remove_suffix=input$remove_artist_suffix, case=input$case_artist), DISCNUMBER = Disc, TRACKNUMBER = Track)
     ][,
       .(Tag = "PERFORMER", text = p(unique(text), collapse = input$sep_multi_value)),
       by = .(DISCNUMBER, TRACKNUMBER)
