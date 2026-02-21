@@ -135,6 +135,13 @@ parse_tracklist <- function(child, album_catalognumber, album_classification){
   # If available, the catalog number is in brackets
   catalognumbers <- stringi::stri_match_last_regex(disc_headings, "\\[(.*)\\]")[, 2]
   if (anyNA(catalognumbers)){ # If incomplete, use album catalog number
+    # Remove other prints info
+    album_catalognumber <- stringi::stri_replace_first_regex(
+      str = album_catalognumber,
+      pattern = " *\\([^()]*print[^()]*\\) *$",
+      replacement = "",
+      opts_regex = list(case_insensitive=TRUE)
+    )
     catalognumbers <- rep(album_catalognumber, n_discs)
   }
 
