@@ -60,10 +60,13 @@ create_album_tags <- function(r, input){
     tbl_album_tags <- init_tbl_album_tags
   }
 
-
+  # Format DATE field
   date_length <- switch(input$date_format, "ymd"=3L, "ym"=2L, "y"=1L)
+  date <- tbl_album_tags$Value[tbl_album_tags$Tag=="DATE"]
+  date <- stringi::stri_split_fixed(date, "-")[[1L]][seq_len(date_length)]
+  date <- paste0(date[!cumsum(is.na(date))], collapse="-")
 
-  tbl_album_tags[Tag=="DATE", Value:=paste0(stringi::stri_split_fixed(Value, "-")[[1L]][seq_len(date_length)], collapse="-")]
+  tbl_album_tags[Tag=="DATE", Value:=date]
   tbl_album_tags[Tag=="ALBUM", Value:=fix_title(Value, case=input$case_album, halfwidth=input$halfwidth, various=input$various_text_fixes)]
   tbl_album_tags[Tag=="CONTENTGROUP", Value:=fix_title(Value, case=input$case_contentgroup, halfwidth=input$halfwidth, various=input$various_text_fixes)]
   data.table::setorderv(tbl_album_tags, "Tag")
