@@ -86,10 +86,10 @@ get_album_info_table <- function(html, event){
       # Not all date parts might be known --> use three different formats for parsing
       date <- format(strptime(date_string, "%m %d, %Y", tz="UTC"), "%Y-%m-%d")
       if (is.na(date)){
-        date <- format(strptime(date_string, "%m %Y", tz="UTC"), "%Y-%m")
+        date <- format(strptime(paste("01", date_string, sep="|"), "%d|%m %Y", tz="UTC"), "%Y-%m")
       }
       if (is.na(date)){
-        date <- format(strptime(date_string, "%Y", tz="UTC"), "%Y")
+        date <- format(strptime(paste("01", "01", date_string, sep="|"), "%d|%m|%Y", tz="UTC"), "%Y")
       }
       data.table::set(x=dt, i=which(dt[["Info"]]=="Release Date"), j="Value", value=date)
     }
