@@ -1,17 +1,6 @@
 # -----------------------------------------------------------------------------
-# This file is part of VGM Credits Parser.
-#
-# VGM Credits Parser is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 3 as
-# published by the Free Software Foundation
-#
-# VGM Credits Parser is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with VGM Credits Parser. If not, see <https://www.gnu.org/licenses/>.
+# Copyright (c) 2026 ff80c38
+# Licensed under the MIT License. See LICENSE file for details.
 # -----------------------------------------------------------------------------
 
 server <- function(input, output, session){
@@ -118,7 +107,10 @@ server <- function(input, output, session){
   output$editor <- shiny::renderUI({
     args <- getOption("vgm_editor")
     args$outputId <- "ace"
-    args$value <- r$album_tags$VGMDB_NOTES %||% ""
+    args$value <- r$album_tags$VGMDB_NOTES
+    if (is.null(args$value)){
+      args$value <- ""
+    }
     do.call(shinyAce::aceEditor, args)
   })
 

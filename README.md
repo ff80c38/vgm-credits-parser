@@ -1,6 +1,6 @@
 # VGM Credits Parser
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![R Version](https://img.shields.io/badge/R-%E2%89%A54.0-blue)](https://www.r-project.org/)
 
 Shiny app written in R that assists with parsing track credits of music albums, particularly video game music.
@@ -93,8 +93,12 @@ This project would not exist without VGMdb. The app also interacts with the site
 
 ## Contributing
 
-Contributions of all sorts are welcome. Stay respectful and inclusive. By contributing, you agree that your contributions will be licensed under the GNU General Public License v3.0.
+Contributions of all sorts are welcome. Stay respectful and inclusive. By contributing, you agree that your contributions will be licensed under the MIT License.
 
 ## License
 
-VGM Credits Parser is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Dependencies
+
+This application depends on various R packages that are distributed under their own licenses. Please review the licenses of the dependencies listed in the Requirements section above.
