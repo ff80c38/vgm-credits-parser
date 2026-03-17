@@ -53,6 +53,55 @@ The following R packages will be automatically installed on first run:
    * **Note**: The first startup can take a while as the script downloads and installs all needed R packages from CRAN
 3. **Optional**: Install `flac` and `imagemagick` packages via the package manager to fully use the file tagger functionality
 
+## Gallery
+
+<details>
+<summary>Expand section to view screenshots.</summary>
+
+### VGMdb Integration
+
+*Retrieve album data directly from VGMdb - here via local HTML file.*
+
+<p align="center">
+<img src="docs/images/1-1_album.png" width="30%" alt="VGMdb Integration">
+</p>
+
+### Interactive Text Editor
+
+*Real-time parsing feedback and result overview as you edit credits.*
+
+<p align="center">
+<img src="docs/images/2-1_unmodified_notes.png" width=30%" alt="VGMdb album notes">
+<img src="docs/images/2-2_detected_info.png" width="30%" alt="Revised album notes suitable for parsing">
+<img src="docs/images/2-3_track_credits.png" width="30%" alt="Parsed track credits overview">
+<img src="docs/images/2-4_comments.png" width="30%" alt="Parsed comments overview">
+<img src="docs/images/2-5_disc_titles.png" width="30%" alt="Parsed disc titles overview">
+</p>
+
+### Tag Configuration and Normalization
+
+*Extensive options for tag standardization and styling, including automatic ARTIST and ALBUMARTIST calculation.*
+
+<p align="center">
+<img src="docs/images/3-1_options.png" width="30%" alt="General options">
+<img src="docs/images/3-2_album.png" width="30%" alt="Album tags standardization">
+<img src="docs/images/3-3_discs.png" width="30%" alt="Disc tags standardization">
+<img src="docs/images/3-4_tracks.png" width="30%" alt="Track tags standardization">
+<img src="docs/images/3-5_album_artist.png" width="30%" alt="Album artist calculation">
+</p>
+
+### Tag Overview, Export, and FLAC File Tagging
+
+*Review all tags before export or directly tag your FLAC files.*
+
+<p align="center">
+<img src="docs/images/3-6_tags_overview.png" width="30%" alt="Final tags overview and export options">
+<img src="docs/images/4-1_filenames.png" width="30%" alt="Filename options">
+<img src="docs/images/4-2_match_files.png" width="30%" alt="FLAC file tagging">
+</p>
+
+</details>
+
 ## Usage
 
 Launch the app by running the script `run_app.bat` or `run_app.sh`. This will start an R server as a background process and open a new tab inside your default web browser with the Shiny app. The R server and app will automatically stop when the browser tab is closed or refreshed.
