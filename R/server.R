@@ -129,8 +129,8 @@ server <- function(input, output, session){
   })
 
   # Parse notes edited by User
-  shiny::observeEvent(ignoreInit=TRUE, list(input$ace, input$ra_ar), {
-    r$tbl_found_info <- analyse_notes(notes=input$ace, ra_ar=input$ra_ar)
+  shiny::observeEvent(ignoreInit=TRUE, list(input$ace, input$ra_ar, input$tc_ct), {
+    r$tbl_found_info <- analyse_notes(notes=input$ace, ra_ar=input$ra_ar, tc_ct=input$tc_ct)
   })
 
   # Update Detected Info Tabs (Counters)

@@ -28,8 +28,9 @@ uitxt_tooltip_cover_resize_size <- paste(
 )
 
 uitxt_info_artist_role <- paste(
-  "Automatic detection does not always work correctly when a line matches both \"Role-Artist\" and \"Artist-Role\".",
-  "Set a tiebreak for the entire notes when parsing seems off."
+  "The fields Role/Artist and Track/Comment are difficult to differentiate, which can lead to misdetection when a line matches both \"Role - Artist\" and \"Artist - Role\", or  \"Track - Comment\" and \"Comment - Track\".",
+  "<br>",
+  "When the detection is off, manually set a tiebreak for the entire notes, i.e. give the parser a hint about the structure."
 )
 
 uitxt_info_directory <- paste(

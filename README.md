@@ -115,17 +115,6 @@ Launch the app by running the script `run_app.bat` or `run_app.sh`. This will st
 5. Either export the finalized tags as a general `.tsv` file or data compatible with Mp3tag and foobar2000
 6. Either tag your FLAC files via the metaflac integration or the exported tag data inside an external program
 
-### VGMdb Cloudflare Protection Workaround
-
-As of 2026-02-09, direct retrieval from VGMdb is not possible anymore due to the new Cloudflare protection. Use this workaround:
-
-1. Open the album page in a web browser and verify you are a human
-2. Download the album page as an HTML file ("HTML Only" is sufficient)
-3. Specify the file path to that HTML file in the album URL field
-4. **Tip**: Always download to the same location with the same filename (e.g., `./album.html`). Set this path as the default value in `config/settings.R`. Then switching albums becomes simply downloading and overwriting the existing HTML file.
-
-Cover retrieval is not affected by the Cloudflare protection.
-
 ## Documentation
 
 * **[Block Format Reference](docs/BLOCKS.md)** - Supported credit block formats

@@ -78,6 +78,16 @@ The following blocks are currently implemented and are used with exactly this pr
 ```
 
 ```
+[1] all
+[…] role - artist
+```
+
+```
+[1] all
+[…] artist - role
+```
+
+```
 [1] disc - track - comment
 […] role - artist
 ```
@@ -110,16 +120,6 @@ The following blocks are currently implemented and are used with exactly this pr
 ```
 [1] role
 […] artist - track
-```
-
-```
-[1] all
-[…] role - artist
-```
-
-```
-[1] all
-[…] artist - role
 ```
 
 ```

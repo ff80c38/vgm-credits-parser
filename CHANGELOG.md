@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2] - 2026-03-22
+
+### Changed
+- Better block detection
+
+### Added
+- Unit tests for block detection
+- Tiebreak option for Track/Comment
+- Screenshots
+
 ## [1.1] - 2026-02-22
 
 ### Changed
