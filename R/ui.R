@@ -61,10 +61,15 @@ ui <- shiny::navbarPage(
         ui_sidebar_fill(
           width = getOption("vgm_sidebar_width_content"),
           shiny::div(
-            class = "flex-row",
+            class = "flex-row-gap",
             shiny::actionButton("reset_notes", "Reset Notes"),
             shiny::span(ui_info(uitxt_info_artist_role), "Tiebreak:", class="push"),
-            shiny::radioButtons("ra_ar", label=NULL, choices=list("Auto"="", "Role-Artist"="role_artist", "Artist-Role"="artist_role"), inline=TRUE, width="auto")
+            shiny::div(
+              class = "flex-row-gap",
+              style = "margin-left: 4px;",
+            shiny::selectInput("ra_ar", NULL, choices=list("Auto Role/Artist"="none", "Role - Artist"="role_artist", "Artist - Role"="artist_role"), multiple=FALSE, width="170px"),
+            shiny::selectInput("tc_ct", NULL, choices=list("Auto Track/Comment"="none", "Track - Comment"="track_comment", "Comment - Track"="comment_track"), multiple=FALSE, width="210px")
+            )
           ),
           if (getOption("vgm_live_theme")){
             shiny::selectInput("ace_theme", label=NULL, choices=getOption("ace_themes"), selected=getOption("vgm_editor")$theme, width="50%")

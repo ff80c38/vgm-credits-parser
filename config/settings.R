@@ -82,6 +82,6 @@ options(vgm_remove_musicbrainz_tags = TRUE)
 
 # Internal Settings ---------------------------------------------------------------------------
 
-options(HTTPUserAgent = "VGM Credits Parser/1.0") # The user agent string that is used for all HTTP connections
+options(HTTPUserAgent = "Mp3tag/vgm-credits-parser") # The user agent string that is used for all HTTP connections
 options(vgm_main_tags = c("COMPOSER", "ARRANGER", "REMIXER", "LYRICIST", "CONDUCTOR", "VOCALIST")) # Which credits are "main" tags and get their own tag field? (VOCALIST is not a Vorbis standard but we use it anyway)
 options(vgm_performer_tags = c("VOCALIST", "PERFORMER")) # Which credits are "performer" tags and should be listed in the PERFROMER tag, including their role in parentheses?

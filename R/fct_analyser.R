@@ -115,8 +115,6 @@ analyse_notes <- function(notes, ra_ar){
   notes_vec <- stringi::stri_split_fixed(notes, "\n")[[1L]]
   notes_vec <- fix_notes_lines(notes_vec)
 
-  NOTES <<- notes_vec
-
   potential_matches <- lapply(LINE, function(line){
     analyse_line(notes_vec, line)
   })
@@ -125,13 +123,23 @@ analyse_notes <- function(notes, ra_ar){
   }))
 
 
-  # If a line matches both "role_artist" and "artist_role", make the decision via option op_ra_ar
+  # If a line matches both "role_artist" and "artist_role", make the decision via user input
   if (ra_ar == "role_artist"){
     idx <- which(has_matches[["role_artist"]] & has_matches[["artist_role"]])
     data.table::set(x=has_matches, i=idx, j="artist_role", value=FALSE)
-  }else if (ra_ar == "artist_role"){
+  }
+  if (ra_ar == "artist_role"){
     idx <- which(has_matches[["role_artist"]] & has_matches[["artist_role"]])
     data.table::set(x=has_matches, i=idx, j="role_artist", value=FALSE)
+  }
+  # If a line matches both "track_comment" and "comment_track", make the decision via user input
+  if (tc_ct == "track_comment"){
+    idx <- which(has_matches[["track_comment"]] & has_matches[["comment_track"]])
+    data.table::set(x=has_matches, i=idx, j="comment_track", value=FALSE)
+  }
+  if (tc_ct == "comment_track"){
+    idx <- which(has_matches[["track_comment"]] & has_matches[["comment_track"]])
+    data.table::set(x=has_matches, i=idx, j="track_comment", value=FALSE)
   }
 
   found_info <- data.table::rbindlist(lapply(get_blocks(notes_vec), function(ids){

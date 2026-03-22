@@ -37,11 +37,16 @@ DELIM <- c(
 )
 
 
-# Permitted characters
+# Permitted characters - Limit allowed characters inside out matching groups/fields
 CHARS <- c(
   "role" = "[^\\:\\?\\_\\=\\~\\(\\)\\[\\]\\{\\}\\%\\$\\§\\\\]"
 )
 
+# Negative Lookaheads - Patterns we want to exclude from our matching groups/fields
+EXCLUDE <- c(
+  # "role" = "(?!.*(?:TRACK *[0-9]|DISC *[0-9]|[#-\\.] *[0-9]|- *[0-9]|\\. *[0-9]))"
+  "role" = "(?!.*(?:TRACK *[0-9]|DISC *[0-9]|[\\#\\-\\.] *[0-9]))"
+)
 
 FIELD <- c(
   "artist" = "(.+?)",
@@ -50,8 +55,8 @@ FIELD <- c(
   "disc" = "[^a-z0-9]*disc *(.*?(?:[0-9]+|ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN).*?)",
   "disc_g" = "[^a-z0-9]*disc *(.*(?:[0-9]+|ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN).*)",
   "discsubtitle" = "(.+)",
-  "role" = p("(", CHARS["role"], "+?)"),
-  "role_g" = p("(", CHARS["role"], "+)"),
+  "role" = p("(", EXCLUDE["role"], CHARS["role"], "+?)"),
+  "role_g" = p("(", EXCLUDE["role"], CHARS["role"], "+)"),
   "track" = "(.*?[0-9].*?)",
   "track_g" = "(.*[0-9].*)",
   "all" = "(all)",
@@ -135,7 +140,7 @@ LINE <- list(
   ),
   "disc_track_comment" = list(
     info  = c("disc", "track", "comment"),
-    regex = p("^", FIELD["disc"], DELIM["info"], FIELD["track"], DELIM["info"], FIELD["commnent"], "$")
+    regex = p("^", FIELD["disc"], DELIM["info"], FIELD["track"], DELIM["info"], FIELD["comment"], "$")
   ),
   "all" = list(
     info  = c("all"),
@@ -198,6 +203,14 @@ BLOCK <- list(
     lines = c("all_role_artist"),
     multi = c(FALSE)
   ),
+  list(
+    lines = c("all", "role_artist"),
+    multi = c(FALSE, TRUE)
+  ),
+  list(
+    lines = c("all", "artist_role"),
+    multi = c(FALSE, TRUE)
+  ),
   list( # https://vgmdb.net/album/113471
     lines = c("disc_track_comment", "role_artist"),
     multi = c(FALSE, TRUE)
@@ -224,14 +237,6 @@ BLOCK <- list(
   ),
   list(
     lines = c("role", "artist_track"),
-    multi = c(FALSE, TRUE)
-  ),
-  list(
-    lines = c("all", "role_artist"),
-    multi = c(FALSE, TRUE)
-  ),
-  list(
-    lines = c("all", "artist_role"),
     multi = c(FALSE, TRUE)
   ),
   list( # https://vgmdb.net/album/65091
